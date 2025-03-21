@@ -1,5 +1,5 @@
 <!--
-	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=treemap-sunburst-transition
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=bar-data-color
 -->
 <!DOCTYPE html>
 <html lang="en" style="height: 100%">
@@ -9,7 +9,7 @@
 <body style="height: 100%; margin: 0">
   <div id="container" style="height: 100%"></div>
 
-  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
+  
   <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   
   <!-- Uncomment this line if you want to dataTool extension
@@ -39,60 +39,37 @@
       useDirtyRect: false
     });
     var app = {};
-    var ROOT_PATH = 'https://echarts.apache.org/examples';
+    
     var option;
 
-    $.getJSON(
-  ROOT_PATH + '/data/asset/data/echarts-package-size.json',
-  function (data) {
-    const treemapOption = {
-      series: [
+    option = {
+  xAxis: {
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [
+        120,
         {
-          type: 'treemap',
-          id: 'echarts-package-size',
-          animationDurationUpdate: 1000,
-          roam: false,
-          nodeClick: undefined,
-          data: data.children,
-          universalTransition: true,
-          label: {
-            show: true
-          },
-          breadcrumb: {
-            show: false
-          }
-        }
-      ]
-    };
-    const sunburstOption = {
-      series: [
-        {
-          type: 'sunburst',
-          id: 'echarts-package-size',
-          radius: ['20%', '90%'],
-          animationDurationUpdate: 1000,
-          nodeClick: undefined,
-          data: data.children,
-          universalTransition: true,
+          value: 200,
           itemStyle: {
-            borderWidth: 1,
-            borderColor: 'rgba(255,255,255,.5)'
-          },
-          label: {
-            show: false
+            color: '#a90000'
           }
-        }
-      ]
-    };
-    let currentOption = treemapOption;
-    myChart.setOption(currentOption);
-    setInterval(function () {
-      currentOption =
-        currentOption === treemapOption ? sunburstOption : treemapOption;
-      myChart.setOption(currentOption);
-    }, 3000);
-  }
-);
+        },
+        150,
+        80,
+        70,
+        110,
+        130
+      ],
+      type: 'bar'
+    }
+  ]
+};
 
     if (option && typeof option === 'object') {
       myChart.setOption(option);
