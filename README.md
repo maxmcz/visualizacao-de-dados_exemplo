@@ -1,4 +1,4 @@
-Visualização interativa de dados produzida durante o LAB 5
+Visualização interativa de dados produzida durante o LAB 6
 
 Projeto 1: https://maxmcz.github.io/visualizacao-de-dados_exemplo/lab6-projeto1.html
 
